@@ -1,0 +1,25 @@
+@startuml
+
+start
+
+:Setup();
+repeat
+  :Ler Botão;
+  if (Botão Pressionado) then (Sim)
+    if (Sistema Ligado?) then (Sim)
+      :Medir e Verificar Distância;
+      if (Distância < 10 cm?) then (Sim)
+        :Ligar Servo Motor;
+        :Aguardar 5 s;
+        :Desligar Servo Motor;
+      endif
+    else (Não)
+      :Sistema Desligado;
+    endif
+  endif
+  :Aguardar 1 s;
+repeat while (true)
+
+stop
+
+@enduml

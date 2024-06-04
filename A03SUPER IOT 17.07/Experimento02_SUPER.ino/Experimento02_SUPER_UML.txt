@@ -1,0 +1,29 @@
+@startuml
+
+class NewPing {
+    +NewPing(TRIGGER_PIN: int, ECHO_PIN: int)
+    +unsigned int ping_cm()
+}
+
+class Servo {
+    +attach(pin: int)
+    +write(angle: int)
+}
+
+class Sistema {
+    -sistemaLigado: bool
+    -ultimoEstadoBotao: int
+    -sonar: NewPing
+    -servoMotor: Servo
+    -TRIGGER_PIN: int
+    -ECHO_PIN: int
+    -BUTTON_PIN: int
+    -SERVO_PIN: int
+    +setup()
+    +loop()
+}
+
+Sistema o-- NewPing : has
+Sistema o-- Servo : has
+
+@enduml
